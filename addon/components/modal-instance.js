@@ -1,6 +1,14 @@
-import Ember from 'ember';
-import layout from '../templates/components/modal-instance';
-import InboundActions from 'ember-component-inbound-actions/inbound-actions';
+import Ember from "ember";
+import layout from "../templates/components/modal-instance";
+import InboundActions from "ember-component-inbound-actions/inbound-actions";
+
+// function argumentsWith(firstArgument, array) {
+//   var args = Array.prototype.slice.call(array);
+//
+//   args.unshift(firstArgument, array);
+//
+//   return args;
+// }
 
 /**
  * @class ModalInstance
@@ -11,23 +19,23 @@ export default Ember.Component.extend(InboundActions, {
 
   layout: layout,
 
-  modalWrapper:null,
+  modalWrapper: null,
 
-  model:null,
+  model: null,
 
-  closeResolve:function(result){
-  	this.sendAction('onCloseResolve', result);
+  closeResolve(result) {
+    this.sendAction('onCloseResolve', result);
   },
 
-  closeReject:function(result){
-  	this.sendAction('onCloseReject', result);
+  closeReject(result) {
+    this.sendAction('onCloseReject', result);
   },
 
-  actions:{
-    closeResolve:function(res){
+  actions: {
+    closeResolve(res) {
       this.closeResolve(res);
     },
-    closeReject:function(res){
+    closeReject(res) {
       this.closeReject(res);
     },
   }

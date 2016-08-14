@@ -51,7 +51,11 @@ export default Ember.Component.extend(InboundActions, {
   }),
 
   close: function () {
-    this.$('.modal').modal('hide');
+    let $modal = this.$('.modal');
+
+    if ($modal) {
+      $modal.modal('hide');
+    }
   },
 
   actions: {
