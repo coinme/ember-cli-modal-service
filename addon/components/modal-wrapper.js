@@ -47,6 +47,7 @@ export default Ember.Component.extend(InboundActions, {
     });
 
     $el.on('hidden.bs.modal', this.actions.closeModalReject.bind(this, 'visible'));
+    //$el.focus();
   }),
 
   close: function () {
