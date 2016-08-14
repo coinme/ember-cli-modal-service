@@ -9,9 +9,9 @@ export default Ember.Service.extend({
   initService:on('init', function(){
     set(this, 'modals', a());
   }),
-  
+
   showModal:function(componentName, context){
-    
+
     var defer = RSVP.defer();
 
     context = context || {};
