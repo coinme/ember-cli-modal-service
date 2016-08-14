@@ -8,21 +8,45 @@ const a = Ember.A; // jshint ignore:line
 
 export default Ember.Component.extend(InboundActions, {
 
+  //region properties
   /**
    * @type {ModalInstance}
    */
   instance: undefined,
 
-  modalSize: Ember.computed('instance', function() {
-    return this.get('instance.target.size') || 'modal-lg';
-  }),
-
   layout: layout,
 
   _sendReject: true,
 
+  //region computed
+  defaultKeyboardValue: true,
+  defaultBackdropValue: true,
+  defaultSizeValue: 'modal-lg',
+
+  modalSize: Ember.computed('instance', function() {
+    return Ember.getWithDefault(this.get('instance.target') || {}, 'size', this.get('defaultSizeValue'));
+  }),
+
+  backdrop: Ember.computed('instance', 'instance.target', 'instance.target.backdrop', 'defaultBackdropValue', function() {
+    return Ember.getWithDefault(this.get('instance.target') || {}, 'backdrop', this.get('defaultBackdropValue'));
+  }),
+
+  keyboard: Ember.computed('instance', 'instance.target', 'instance.target.keyboard', 'defaultKeyboardValue', function() {
+    return Ember.getWithDefault(this.get('instance.target') || {}, 'keyboard', this.get('defaultKeyboardValue'));
+  }),
+  //endregion
+
+  //endregion
+
   show: on('didInsertElement', function () {
-    this.$('.modal').modal();
+    let $el = this.$('.modal');
+
+    $el.modal({
+      keyboard: this.get('keyboard'),
+      backdrop: this.get('backdrop')
+    });
+
+    $el.on('hidden.bs.modal', this.actions.closeModalReject.bind(this, 'visible'));
   }),
 
   close: function () {
