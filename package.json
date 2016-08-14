@@ -2,13 +2,13 @@
   "name": "ember-cli-modal-service",
   "version": "0.1.0",
   "description": "An Ember modal service packaged as an Ember-Addon",
-  "homepage":"http://www.arexo.be/",
-  "directories":{
+  "homepage": "http://www.arexo.be/",
+  "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "bugs":{
-    "url":"https://github.com/Arexo/ember-cli-modal-service/issues"
+  "bugs": {
+    "url": "https://github.com/Arexo/ember-cli-modal-service/issues"
   },
   "scripts": {
     "build": "ember build",
@@ -20,9 +20,9 @@
     "node": ">= 0.10.0"
   },
   "author": {
-    "name":"Antoine Dubois",
-    "email":"antoine.dubois@arexo.be",
-    "url":"http://www.arexo.be"
+    "name": "Antoine Dubois",
+    "email": "antoine.dubois@arexo.be",
+    "url": "http://www.arexo.be"
   },
   "license": "MIT",
   "devDependencies": {
@@ -39,15 +39,16 @@
     "ember-cli-release": "0.2.8",
     "ember-cli-sri": "^1.2.0",
     "ember-cli-uglify": "^1.2.0",
+    "ember-component-inbound-actions": "1.1.0",
+    "ember-disable-prototype-extensions": "^1.0.0",
     "ember-disable-proxy-controllers": "^1.0.1",
     "ember-export-application-global": "^1.0.4",
-    "ember-disable-prototype-extensions": "^1.0.0",
     "ember-try": "~0.0.8"
   },
   "keywords": [
     "ember-addon",
-    "modal", 
-    "modal dialog", 
+    "modal",
+    "modal dialog",
     "modal component",
     "bootstrap"
   ],

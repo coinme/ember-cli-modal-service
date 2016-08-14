@@ -1,7 +1,14 @@
 import Ember from 'ember';
 import layout from '../templates/components/modal-instance';
+import InboundActions from 'ember-component-inbound-actions/inbound-actions';
 
-export default Ember.Component.extend({
+/**
+ * @class ModalInstance
+ */
+export default Ember.Component.extend(InboundActions, {
+
+  size: 'modal-lg',
+
   layout: layout,
 
   modalWrapper:null,
