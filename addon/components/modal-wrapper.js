@@ -71,7 +71,7 @@ export default Ember.Component.extend(InboundActions, {
   }),
 
   close: function () {
-    if (this.get('isClosed') || this.get('isDestroyed') || this.get('isDestroying')) {
+    if (this.get('isDestroyed') || this.get('isDestroying') || this.get('isClosed')) {
       return;
     }
 
@@ -86,7 +86,7 @@ export default Ember.Component.extend(InboundActions, {
 
   actions: {
     closeModalResolve: function (result) {
-      if (this.get('isClosed')) {
+      if (this.get('isDestroyed') || this.get('isDestroying') || this.get('isClosed')) {
         return;
       }
 
@@ -95,7 +95,7 @@ export default Ember.Component.extend(InboundActions, {
     },
 
     closeModalReject: function (result) {
-      if (this.get('isClosed')) {
+      if (this.get('isDestroyed') || this.get('isDestroying') || this.get('isClosed')) {
         return;
       }
 
